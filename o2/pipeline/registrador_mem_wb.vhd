@@ -29,7 +29,7 @@ entity registrador_mem_wb is
 
         valid_saida : out std_logic
     );
-end entity;
+end entity registrador_mem_wb;
 
 architecture comportamento of registrador_mem_wb is
 begin
@@ -37,15 +37,20 @@ begin
     begin
         if rising_edge(clk) then
             if rst = '1' then
+                dado_memoria_saida <= (others => '0');
+                resultado_ula_saida <= (others => '0');
+                registrador_destino_saida <= (others => '0');
+
+                reg_write_saida <= '0';
+                mem_para_reg_saida <= '0';
+
                 valid_saida <= '0';
 
             elsif habilita = '1' then
-                -- Armazenamento dos dados
                 dado_memoria_saida <= dado_memoria_entrada;
                 resultado_ula_saida <= resultado_ula_entrada;
                 registrador_destino_saida <= registrador_destino_entrada;
 
-                -- Armazenamento dos controles
                 reg_write_saida <= reg_write_entrada;
                 mem_para_reg_saida <= mem_para_reg_entrada;
 
@@ -53,4 +58,4 @@ begin
             end if;
         end if;
     end process;
-end architecture;
+end architecture comportamento;

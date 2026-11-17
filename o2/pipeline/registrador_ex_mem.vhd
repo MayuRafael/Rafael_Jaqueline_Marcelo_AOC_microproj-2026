@@ -1,3 +1,4 @@
+
 library ieee;
 use ieee.std_logic_1164.all;
 
@@ -33,14 +34,24 @@ entity registrador_ex_mem is
 
         valid_saida : out std_logic
     );
-end entity;
+end entity registrador_ex_mem;
 
 architecture comportamento of registrador_ex_mem is
 begin
+
     process(clk)
     begin
         if rising_edge(clk) then
             if rst = '1' then
+                resultado_ula_saida <= (others => '0');
+                dado_memoria_saida <= (others => '0');
+                registrador_destino_saida <= (others => '0');
+
+                mem_read_saida <= '0';
+                mem_write_saida <= '0';
+                reg_write_saida <= '0';
+                mem_para_reg_saida <= '0';
+
                 valid_saida <= '0';
 
             elsif habilita = '1' then
@@ -59,4 +70,5 @@ begin
             end if;
         end if;
     end process;
-end architecture;
+
+end architecture comportamento;
