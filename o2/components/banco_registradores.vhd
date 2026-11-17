@@ -29,7 +29,7 @@ begin
 
        process(clk)
     begin
-        if rising_edge(clk) then
+if falling_edge(clk) then
             if escreve = '1' and
                not is_x(reg_escrita) and
                reg_escrita /= "00000" then
