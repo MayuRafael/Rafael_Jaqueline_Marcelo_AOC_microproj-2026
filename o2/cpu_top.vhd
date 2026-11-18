@@ -131,11 +131,21 @@ begin
         when abort_reg = '0' and detecta_hazard = '0' and rst = '0'
         else '0';
 
-    hazard_abort <= abort_reg;
-    hazard_type  <= tipo_abort_reg;
-    hazard_pc    <= pc_abort_reg;
-    hazard_cycle <= ciclo_abort_reg;
+        hazard_abort <= '1' when abort_reg = '1' else
+                    '1' when detecta_hazard = '1' else
+                    '0';
 
+        hazard_type  <= tipo_abort_reg when abort_reg = '1' else
+                        tipo_hazard_comb when detecta_hazard = '1' else
+                        "00";
+
+        hazard_pc    <= pc_abort_reg when abort_reg = '1' else
+                        pc_hazard_comb when detecta_hazard = '1' else
+                        (others => '0');
+
+        hazard_cycle <= ciclo_abort_reg when abort_reg = '1' else
+                        contador_ciclos + 1 when detecta_hazard = '1' else
+                        (others => '0');
     process(clk)
     begin
         if rising_edge(clk) then
