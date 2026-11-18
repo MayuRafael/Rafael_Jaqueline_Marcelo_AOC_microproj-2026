@@ -36,14 +36,21 @@ architecture comportamento of memoria_instrucao is
                 report "Erro ao abrir arquivo HEX: " & PROG_FILE
                 severity failure;
 
-            while not endfile(arquivo) and i < 256 loop
-                readline(arquivo, linha);
-                hread(linha, dados);
-                resultado(i) := dados;
-                i := i + 1;
-            end loop;
+            -- [Ajuste sugerido pelo Claude; declarar no Apendice C]
+            -- So le o arquivo se ele abriu (evita laco infinito se nao existir)
+            -- e pula linhas vazias (ex.: linha em branco no fim do .hex).
+            if status = open_ok then
+                while not endfile(arquivo) and i < 256 loop
+                    readline(arquivo, linha);
+                    next when linha'length = 0;
+                    next when linha(1) = CR;  -- linha vazia com CRLF
+                    hread(linha, dados);
+                    resultado(i) := dados;
+                    i := i + 1;
+                end loop;
 
-            file_close(arquivo);
+                file_close(arquivo);
+            end if;
         end if;
 
         return resultado;

@@ -1,0 +1,14 @@
+# teste_fumaca_esperado.txt : valores finais dos registradores
+# formato: <registrador em decimal> <valor em hexadecimal>
+8 00000005
+9 00000007
+10 FFFFFFFD
+11 0000000C
+12 00000002
+13 00000005
+14 00000007
+15 00000001
+16 0000000C
+17 00000001
+18 00000000
+19 00000002

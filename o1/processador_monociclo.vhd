@@ -161,21 +161,12 @@ habilita_pc <= not halt_s;
     hazard_type  <= "00";
     hazard_pc    <= (others => '0');
     hazard_cycle <= (others => '0');
-        process(clk)
-    begin
-        if rising_edge(clk) then
-            if rst = '1' then
-                retired    <= "00";
-                stage_valid <= (others => '0');
-            else
-                if halt_s = '1' then
-                    retired    <= "00";
-                    stage_valid <= (others => '0');
-                else
-                    retired    <= "01";
-                    stage_valid <= "0000000001";
-                end if;
-            end if;
-        end if;
-    end process;
+    -- [Ajuste sugerido pelo Claude; declarar no Apendice C]
+    -- No monociclo a instrucao termina no proprio ciclo em que executa, entao
+    -- retired e stage_valid sao combinacionais (antes ficavam 1 ciclo atrasados
+    -- e a ocupacao saia menor que 100%).
+    -- retired = 1 em todo ciclo com instrucao util (o break nao conta);
+    -- stage_valid(0) = 1 em todo ciclo com instrucao no estagio (inclui o break).
+    retired     <= "01" when rst = '0' and halt_s = '0' else "00";
+    stage_valid <= "0000000001" when rst = '0' else (others => '0');
 end architecture estrutural;
