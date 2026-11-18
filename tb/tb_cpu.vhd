@@ -64,10 +64,11 @@ begin
     variable cpi, ipc, ocup : real := 0.0;
   begin
     -- 3.1 Reset síncrono durante 2 ciclos
-    rst <= '1';
-    wait until rising_edge(clk);
-    wait until rising_edge(clk);
-    rst <= '0';
+ rst <= '1';
+wait until rising_edge(clk);
+wait until rising_edge(clk);
+wait until falling_edge(clk);
+rst <= '0';
 
     -- 3.2 Execução: amostra na borda de DESCIDA, no meio do ciclo,
     --      quando as saídas do processador já estão estáveis
