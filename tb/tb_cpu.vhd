@@ -87,7 +87,6 @@ begin
     rst <= '1';
     wait until rising_edge(clk);
     wait until rising_edge(clk);
-    wait until falling_edge(clk);
     rst <= '0';
 
     -- 3.2 Execucao
