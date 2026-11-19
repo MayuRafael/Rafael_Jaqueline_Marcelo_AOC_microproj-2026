@@ -103,6 +103,14 @@ echo
 echo "== metricas.csv"
 if command -v column >/dev/null 2>&1; then column -t -s ';' "$CSV"; else cat "$CSV"; fi
 echo
+echo "== Tabela 4, graficos e tabelas do T0"
+if command -v python3 >/dev/null 2>&1; then
+  python3 scripts/gera_graficos.py || echo "AVISO: falha ao gerar a Tabela 4 e os graficos"
+  python3 scripts/gera_tabelas_t0.py || echo "AVISO: falha ao gerar as tabelas do T0"
+else
+  echo "AVISO: python3 nao encontrado; Tabela 4 e graficos nao gerados"
+fi
+echo
 if [[ $FALHAS -eq 0 ]]; then
   echo "OK: todas as simulacoes terminaram como esperado."
 else

@@ -1,0 +1,14 @@
+instrucao;C1;C2;C3;C4;C5;C6;C7;C8;C9;C10;C11;C12;C13;C14;C28;C29;C30;C31;C32;C33;C34
+addi $t0, $zero, 1 (0x00);IF;ID;EX;MEM;WB;;;;;;;;;;;;;;;;
+addi $t1, $zero, 2 (0x04);;IF;ID;EX;MEM;WB;;;;;;;;;;;;;;;
+addi $t2, $zero, 3 (0x08);;;IF;ID;EX;MEM;WB;;;;;;;;;;;;;;
+addi $t3, $zero, 4 (0x0C);;;;IF;ID;EX;MEM;WB;;;;;;;;;;;;;
+addi $t4, $zero, 5 (0x10);;;;;IF;ID;EX;MEM;WB;;;;;;;;;;;;
+addi $a0, $zero, 10 (0x14);;;;;;IF;ID;EX;MEM;WB;;;;;;;;;;;
+addi $a1, $zero, 20 (0x18);;;;;;;IF;ID;EX;MEM;WB;;;;;;;;;;
+add $t5, $t0, $t1 (0x1C);;;;;;;;IF;ID;EX;MEM;WB;;;;;;;;;
+sub $t6, $t2, $t0 (0x20);;;;;;;;;IF;ID;EX;MEM;WB;;;;;;;;
+and $t7, $t3, $t4 (0x24);;;;;;;;;;IF;ID;EX;MEM;WB;;;;;;;
+add $a2, $a0, $a1 (0x6C);;;;;;;;;;;;;;;IF;ID;EX;MEM;WB;;
+addi $a3, $zero, 7 (0x70);;;;;;;;;;;;;;;;IF;ID;EX;MEM;WB;
+beq $a0, $a1, fim (0x74);;;;;;;;;;;;;;;;;IF;ID;EX;MEM;WB
