@@ -1,0 +1,38 @@
+[*]
+[*] GTKWave Analyzer v3.3.100 (w)1999-2019 BSI
+[*] Wed Nov 18 15:49:36 2026
+[*]
+[dumpfile] "C:\Users\novo\Rafael_Jaqueline_Marcelo_AOC_microproj-2026\t0_o2.vcd"
+[dumpfile_mtime] "Wed Nov 18 14:42:44 2026"
+[dumpfile_size] 68240
+[savefile] "C:\Users\novo\Rafael_Jaqueline_Marcelo_AOC_microproj-2026\t0_o2.gtkw"
+[timestart] 0
+[size] 1000 600
+[pos] -1 -1
+*-26.080896 8200000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] tb_cpu.
+[treeopen] tb_cpu.dut.
+[sst_width] 197
+[signals_width] 174
+[sst_expanded] 1
+[sst_vpaned_height] 153
+@28
+tb_cpu.dut.clk
+@22
+tb_cpu.dut.pc_atual[31:0]
+tb_cpu.dut.instrucao_if[31:0]
+tb_cpu.dut.instrucao_id[31:0]
+@28
+tb_cpu.dut.valid_if_id
+tb_cpu.dut.valid_id_ex
+tb_cpu.dut.valid_ex_mem
+tb_cpu.dut.valid_mem_wb
+tb_cpu.dut.hazard_abort
+tb_cpu.dut.rst
+@22
+tb_cpu.dut.stage_valid[9:0]
+@28
+tb_cpu.dut.retired[1:0]
+tb_cpu.dut.done
+[pattern_trace] 1
+[pattern_trace] 0
