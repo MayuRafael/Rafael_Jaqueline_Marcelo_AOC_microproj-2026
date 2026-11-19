@@ -1,0 +1,4 @@
+# Normaliza as quebras de linha no repositorio.
+# Scripts .sh sempre com LF: com CRLF (padrao do Windows) eles falham no bash do WSL/Linux.
+* text=auto
+*.sh text eol=lf
